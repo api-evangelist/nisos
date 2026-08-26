@@ -1,0 +1,23 @@
+generated: '2026-08-26'
+method: searched
+source: >-
+  Full read of the nisos.com Yoast page sitemap (144 URLs) for a documented limit, plus
+  anonymous response-header inspection of both Ascend API hosts, 2026-08-26.
+limit_count: 0
+limits: []
+response_headers: []
+exhaustion_status: null
+evidence:
+  - url: https://api.ascend.nisos.com/
+    status: 403
+    note: >-
+      AWS API Gateway rejects anonymously (x-amzn-errortype ForbiddenException). Response
+      carries no X-RateLimit-*, no RateLimit-* and no Retry-After header, so no runtime
+      rate-limit signal is observable without credentials.
+  - url: https://platform.ascend.nisos.com/
+    status: 403
+    note: nginx 403 with no rate-limit headers
+note: >-
+  Nisos documents no rate limits anywhere on its public surface — there is no developer
+  portal, no API reference and no published contract in which limits could be stated. The
+  live API hosts emit no rate-limit headers to an anonymous caller. An honest zero.

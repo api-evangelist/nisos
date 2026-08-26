@@ -1,0 +1,43 @@
+generated: '2026-08-26'
+method: probed
+source: https://trust.nisos.com/
+url: https://trust.nisos.com/
+platform: Vanta
+certifications: []
+evidence:
+  - url: https://trust.nisos.com/
+    status: 200
+    content_type: text/html
+    note: >-
+      Live, first-party trust center on a Nisos-controlled subdomain, hosted by Vanta —
+      the served HTML carries data-signature-manifest-url pointing at assets.vanta.com,
+      a canonical link to https://trust.nisos.com, and the title "Nisos Trust Center".
+  - url: https://trust.nisos.com/.well-known/zzz-control-probe-9182
+    status: 200
+    note: >-
+      Control probe returned the identical 5,433-byte body, confirming the host is a
+      single-page app that answers 200 for every path.
+readability: js-rendered
+note: >-
+  The trust center is real and reachable, but its content — the certification list, the
+  document library and the subprocessor register — is rendered client-side from the Vanta
+  API. The served HTML contains no framework name, so NO certification (SOC 2, ISO 27001,
+  HIPAA, FedRAMP, PCI DSS) could be verified anonymously and none is asserted here. The
+  automated probe (0-working/probe-security-programs.py) correctly declined to write on the
+  same evidence; this file records the page's existence without inventing its contents.
+pointer_policy: >-
+  A TrustCenter pointer is emitted in apis.yml against the live page. NO Compliance pointer
+  is emitted — compliance_published requires a named, published certification, and naming
+  one we could not read would be fabrication.
+vulnerability_disclosure:
+  found: false
+  probed:
+    - url: https://nisos.com/.well-known/security.txt
+      status: 404
+    - url: https://ascend.nisos.com/.well-known/security.txt
+      status: 200
+      note: SPA catch-all, not a security.txt — see well-known/nisos-well-known.yml
+  note: >-
+    No security.txt, no /security or /vulnerability-disclosure page in the 144-URL page
+    sitemap, and no HackerOne, Bugcrowd or Intigriti program found. No Security pointer is
+    emitted.

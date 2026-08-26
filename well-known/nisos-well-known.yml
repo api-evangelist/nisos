@@ -1,0 +1,175 @@
+generated: '2026-08-26'
+method: probed
+source: >-
+  Anonymous HTTP probe of /.well-known/* on every Nisos host discovered in this pass
+  (apex, the Ascend console, both Ascend API hosts, the Kahootz client portal and the
+  Vanta trust center), 2026-08-26.
+summary: >-
+  Nisos serves no /.well-known/ discovery documents on any host. The apex returns a
+  WordPress 404 for every path; the Ascend console and the Vanta-hosted trust center are
+  single-page apps that answer 200 with an identical HTML shell for EVERY path including a
+  nonsense control probe, so their 200s are catch-alls and NOT documents; both Ascend API
+  hosts reject anonymous requests outright (AWS API Gateway ForbiddenException / nginx 403).
+hit_count: 0
+soft_404_control:
+  note: >-
+    A deliberate nonsense path (/.well-known/zzz-control-probe-9182) was requested on every
+    host. Where it returned the same status and the same response body hash as the real
+    well-known paths, every 200 on that host is a catch-all and no document exists.
+  probes:
+    - host: https://ascend.nisos.com
+      path: /.well-known/zzz-control-probe-9182
+      status: 200
+      bytes: 6893
+      body_sha256_prefix: 57b39cd4fa2b
+      note: identical body hash to all eight real well-known probes — SPA catch-all
+    - host: https://trust.nisos.com
+      path: /.well-known/zzz-control-probe-9182
+      status: 200
+      bytes: 5433
+      body_sha256_prefix: 9566515ab2bb
+      note: identical body hash to all eight real well-known probes — Vanta SPA catch-all
+hosts:
+  - host: https://nisos.com
+    note: WordPress apex. Genuine 404s — no catch-all.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://ascend.nisos.com
+    note: >-
+      Nisos Ascend console (React SPA on CloudFront). Every path returns HTTP 200 with the
+      same 6,893-byte app shell, control probe included. NOT documents — no file saved.
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        catch_all: true
+      - path: /.well-known/openid-configuration
+        status: 200
+        catch_all: true
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        catch_all: true
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        catch_all: true
+      - path: /.well-known/api-catalog
+        status: 200
+        catch_all: true
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        catch_all: true
+      - path: /.well-known/agent-card.json
+        status: 200
+        catch_all: true
+      - path: /.well-known/agent.json
+        status: 200
+        catch_all: true
+  - host: https://api.ascend.nisos.com
+    note: >-
+      Ascend external API (AWS API Gateway). Every anonymous request returns 403
+      {"message":"Forbidden"} with x-amzn-errortype: ForbiddenException, including the
+      control probe — the gateway rejects before routing, so nothing is discoverable.
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+      - path: /.well-known/openid-configuration
+        status: 403
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+      - path: /.well-known/oauth-protected-resource
+        status: 403
+      - path: /.well-known/api-catalog
+        status: 403
+      - path: /.well-known/ai-plugin.json
+        status: 403
+      - path: /.well-known/agent-card.json
+        status: 403
+      - path: /.well-known/agent.json
+        status: 403
+  - host: https://platform.ascend.nisos.com
+    note: >-
+      Ascend internal platform API (nginx). Anonymous requests returned 401 with a 27-byte
+      JSON body on first pass and 403 text/html thereafter; no path is reachable.
+    documents:
+      - path: /.well-known/security.txt
+        status: 401
+      - path: /.well-known/openid-configuration
+        status: 401
+      - path: /.well-known/oauth-authorization-server
+        status: 401
+      - path: /.well-known/oauth-protected-resource
+        status: 401
+      - path: /.well-known/api-catalog
+        status: 401
+      - path: /.well-known/ai-plugin.json
+        status: 401
+      - path: /.well-known/agent-card.json
+        status: 401
+      - path: /.well-known/agent.json
+        status: 401
+  - host: https://portal.nisos.com
+    note: Kahootz-hosted invite-only client collaboration portal. Genuine 404s.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://trust.nisos.com
+    note: >-
+      Vanta-hosted trust center SPA. Every path returns HTTP 200 with the same 5,433-byte
+      shell, control probe included. NOT documents — no file saved.
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        catch_all: true
+      - path: /.well-known/openid-configuration
+        status: 200
+        catch_all: true
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        catch_all: true
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        catch_all: true
+      - path: /.well-known/api-catalog
+        status: 200
+        catch_all: true
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        catch_all: true
+      - path: /.well-known/agent-card.json
+        status: 200
+        catch_all: true
+      - path: /.well-known/agent.json
+        status: 200
+        catch_all: true
+pointer_policy: >-
+  No WellKnown and no SecurityTxt pointer is emitted in apis.yml. Every 200 recorded above is
+  a single-page-app catch-all proven by the control probe, and every other probe returned 404,
+  401 or 403. This file records a measured absence, not a served surface.

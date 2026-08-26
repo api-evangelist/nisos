@@ -1,0 +1,39 @@
+generated: '2026-08-26'
+method: searched
+source: >-
+  Unauthenticated registry searches on 2026-08-26 across npm, PyPI, RubyGems, crates.io,
+  NuGet and Packagist, plus a read of the whole nisos.com page sitemap (144 URLs) and the
+  Ascend platform pages for an SDK or client-library link.
+package_count: 0
+official_package_count: 0
+packages: []
+registries_searched:
+  - registry: npm
+    query: https://registry.npmjs.org/-/v1/search?text=nisos&size=20
+    result: no packages returned
+  - registry: pypi
+    query: https://pypi.org/pypi/nisos/json
+    status: 404
+    result: no project named nisos
+  - registry: rubygems
+    query: https://rubygems.org/api/v1/search.json?query=nisos
+    result: only unrelated NISO-standards gems (mnconvert)
+  - registry: crates.io
+    query: https://crates.io/api/v1/crates?q=nisos
+    result: only unrelated crate (revelo-export)
+  - registry: nuget
+    query: https://azuresearch-usnc.nuget.org/query?q=nisos
+    result: empty
+  - registry: packagist
+    query: https://packagist.org/search.json?q=nisos
+    result: only unrelated packages (nicoswd/*)
+  - registry: pkg.go.dev
+    result: not probed as a search index; no Go module referenced from any Nisos page
+  - registry: maven-central
+    result: no Nisos coordinate referenced from any Nisos page
+note: >-
+  Nisos publishes no first-party client library in any public package registry, and no page
+  on nisos.com links to an SDK, client library or CLI. The github.com/nisos organization
+  exists (created 2016-04-21) but has 0 public repositories, no name, no blog URL and no
+  description, so it can neither be attributed to this company nor mined for a package.
+  This is a measured zero, not an unchecked field — no SDKs pointer is emitted.

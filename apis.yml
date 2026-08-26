@@ -1,23 +1,133 @@
 aid: nisos
 name: Nisos
-description: 'Nisos is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Nisos is a human risk intelligence company, founded in 2015 and headquartered in
+  Alexandria, Virginia, that combines analyst-led investigative tradecraft with an
+  AI-assisted platform to help enterprises detect, investigate and mitigate threats that
+  originate with people. Its Managed Intelligence services cover executive protection and
+  digital exposure, employment and hiring fraud, insider threat, third-party and supply-chain
+  intelligence, threat landscape assessment, OSINT monitoring and adversary attribution
+  investigations, drawing on surface, deep and dark web collection. Its Ascend platform
+  productizes that tradecraft for client-led use, shipping Executive Shield and Insider
+  Threat Intelligence modules with continuous monitoring, PII removal, risk analytics and
+  dashboard reporting. Nisos sells enterprise-only through a demo request; it publishes no
+  developer portal, no API reference and no machine-readable contract, though the Ascend
+  console does call a live, credential-gated external API host of its own.
+type: Index
+image: https://nisos.com/wp-content/uploads/2025/03/NISOS_logo_low_res_horiz-black-cropped.png
 url: https://raw.githubusercontent.com/api-evangelist/nisos/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-08-26'
 modified: '2026-08-26'
 tags:
-- Company
-apis: []
+- Threat Intelligence
+- Human Risk Management
+- Insider Threat
+- Executive Protection
+- OSINT
+- Digital Investigations
+- Cybersecurity
+- Adversary Attribution
+- Employment Fraud
+- Third-Party Risk
+- Trust and Safety
+- Dark Web Monitoring
+- Managed Services
+- Federal
+apis:
+- aid: nisos:nisos-ascend-external-api
+  name: Nisos Ascend External API
+  description: >-
+    Credential-gated HTTPS API behind the Nisos Ascend human risk management platform. Its
+    existence and base URL are established from Nisos's own production build: the Ascend
+    console's configuration module (ascend.nisos.com/assets/api-urls-*.js) declares
+    EXTERNAL_API_URL as https://api.ascend.nisos.com and API_URL as
+    https://platform.ascend.nisos.com. The external host is an AWS API Gateway that answers
+    every anonymous request — root, control path and /.well-known/* alike — with HTTP 403
+    {"message":"Forbidden"} and x-amzn-errortype ForbiddenException. Nisos publishes no
+    reference, no OpenAPI and no authentication documentation for it, so no operations,
+    parameters or auth scheme are recorded here. Listed as a measured, gated surface.
+  humanURL: https://nisos.com/platform/ascend/
+  baseURL: https://api.ascend.nisos.com
+  tags:
+  - Human Risk Management
+  - Insider Threat
+  - Executive Protection
+  - Threat Intelligence
+  properties:
+  - type: Login
+    url: https://ascend.nisos.com/
+  x-access: gated
+  x-evidence:
+    discovered: '2026-08-26'
+    method: probed
+    source: https://ascend.nisos.com/assets/api-urls-DHyQbJOb.js
+    probes:
+    - url: https://api.ascend.nisos.com/
+      status: 403
+    - url: https://api.ascend.nisos.com/openapi.json
+      status: 403
+    - url: https://platform.ascend.nisos.com/
+      status: 403
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/nisos-domain-security.yml
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://nisos.com/
+- type: Blog
+  url: https://nisos.com/nisos-blog/
+- type: Support
+  url: https://nisos.com/contact/
+- type: TermsOfService
+  url: https://nisos.com/terms-conditions/
+- type: PrivacyPolicy
+  url: https://nisos.com/privacy-policy/
+- type: TrustCenter
+  url: https://trust.nisos.com/
+- type: Login
+  url: https://ascend.nisos.com/
+- type: LLMsTxt
+  url: llms/nisos-llms.txt
+- type: Packages
+  url: packages/nisos-packages.yml
+- type: Conformance
+  url: conformance/nisos-conformance.yml
+- type: Plans
+  url: plans/nisos-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/nisos-rate-limits.yml
+x-enrichment:
+  date: '2026-08-26'
+  status: minimal
+  artifacts_added: 9
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: customer-only-docs
+  detail: >-
+    Nisos runs a live external API for its Ascend platform at https://api.ascend.nisos.com
+    — named EXTERNAL_API_URL in the Ascend console's own production JavaScript — but it is
+    reachable only with tenant credentials, answering every anonymous request including
+    /openapi.json with HTTP 403 {"message":"Forbidden"}, and Nisos publishes no developer
+    portal, API reference or specification anywhere on its 144-page public site.
+  evidence:
+    - url: https://api.ascend.nisos.com/openapi.json
+      status: 403
+    - url: https://platform.ascend.nisos.com/openapi.json
+      status: 401
+    - url: https://nisos.com/openapi.json
+      status: 404
+    - url: https://ascend.nisos.com/.well-known/zzz-control-probe-9182
+      status: 200
+    - url: https://nisos.com/developers/
+      status: 404
+    - url: https://nisos.com/llms.txt
+      status: 200
+  checked: '2026-08-26'

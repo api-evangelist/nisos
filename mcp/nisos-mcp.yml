@@ -1,0 +1,29 @@
+generated: '2026-08-26'
+method: probed
+status: none
+source: >-
+  DNS and HTTP probes on 2026-08-26 against mcp.nisos.com, ascend.nisos.com/mcp and
+  api.ascend.nisos.com/mcp, plus a web search for a published Nisos MCP server.
+deployment:
+  mode: none
+  auth: unknown
+  verified: probed
+server: null
+tools: []
+probes:
+  - url: https://mcp.nisos.com/mcp
+    method: POST tools/list
+    result: DNS NXDOMAIN — host does not resolve
+  - url: https://ascend.nisos.com/mcp
+    method: POST tools/list
+    status: 403
+    result: CloudFront blocked the POST; the host is the console SPA, not an MCP endpoint
+  - url: https://api.ascend.nisos.com/mcp
+    method: POST tools/list
+    status: 403
+    result: '{"message":"Forbidden"} from AWS API Gateway — same response as every other path'
+note: >-
+  Nisos ships no hosted MCP server and no stdio MCP package, and there is no public OpenAPI
+  from which a candidate tool list could be derived, so no candidate tools are listed here.
+  mode is none and NO MCPServer pointer is emitted in apis.yml. This file records that the
+  probe ran and missed.

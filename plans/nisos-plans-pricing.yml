@@ -1,0 +1,25 @@
+generated: '2026-08-26'
+method: searched
+source: >-
+  Full read of the nisos.com Yoast page sitemap (144 URLs) plus direct probes of
+  https://nisos.com/pricing/ and https://nisos.com/platform/ascend/, 2026-08-26.
+plan_count: 0
+plans: []
+pricing_model: enterprise-contact-sales
+evidence:
+  - url: https://nisos.com/pricing/
+    status: 404
+    note: no pricing page exists on the apex
+  - url: https://nisos.com/platform/ascend/
+    status: 200
+    note: >-
+      The Ascend platform page's only conversion CTAs are "Request a Demo" and
+      "Download Platform Brief" — no tier, price, quota or overage is stated anywhere.
+  - url: https://nisos.com/contact/
+    status: 200
+    note: contact form is the sole commercial entry point
+note: >-
+  Nisos publishes no plans, tiers or prices of any kind. Ascend and the Managed Intelligence
+  services are sold enterprise-only through a demo request and a sales conversation. This is
+  a measured zero, not an unchecked field. NO Pricing pointer is emitted in apis.yml because
+  there is no pricing page to point at.

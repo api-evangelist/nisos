@@ -64,5 +64,10 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Nisos is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+Nisos is a human risk intelligence company, founded in 2015 and headquartered in Alexandria, Virginia. It combines analyst-led investigative tradecraft with an AI-assisted platform to help enterprises detect, investigate and mitigate threats that originate with people — executive protection and digital exposure, employment and hiring fraud, insider threat, third-party and supply-chain intelligence, threat landscape assessment, OSINT monitoring and adversary attribution. Its Ascend platform productizes that tradecraft with Executive Shield and Insider Threat Intelligence modules.
+
+Nisos sells enterprise-only through a demo request. It publishes no developer portal, no API reference and no machine-readable contract. The Ascend console does call a live, credential-gated external API host of its own (`https://api.ascend.nisos.com`), which answers every anonymous request with HTTP 403.
+
+- https://nisos.com/
+- https://nisos.com/platform/ascend/
+- https://trust.nisos.com/

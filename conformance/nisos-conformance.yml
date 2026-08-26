@@ -1,0 +1,70 @@
+generated: '2026-08-26'
+method: probed
+source: >-
+  Anonymous probes of the Nisos Ascend API hosts and a read of every public Nisos page
+  (144 URLs in the Yoast page sitemap) for standards or compliance claims, 2026-08-26.
+summary: >-
+  Nisos publishes no machine-readable contract, so no cross-cutting standard can be asserted
+  from a spec. The threat-intelligence domain standards were probed directly against the
+  Ascend API hosts and none is served anonymously.
+standards:
+  - id: oauth2
+    conforms: unknown
+    evidence: >-
+      No OpenAPI securitySchemes to read and no public auth documentation. Both Ascend API
+      hosts reject anonymous requests (403 / 401) without a WWW-Authenticate challenge, so
+      the scheme cannot be established from the outside.
+  - id: oidc
+    conforms: false
+    evidence: >-
+      /.well-known/openid-configuration returns 404 on nisos.com and portal.nisos.com,
+      403/401 on the Ascend API hosts, and an SPA catch-all 200 on ascend.nisos.com.
+  - id: rfc8414-oauth-authorization-server
+    conforms: false
+    evidence: /.well-known/oauth-authorization-server absent on every host — see well-known/nisos-well-known.yml
+  - id: rfc9728-oauth-protected-resource
+    conforms: false
+    evidence: /.well-known/oauth-protected-resource absent on every host
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: >-
+      api.ascend.nisos.com returns application/json {"message":"Forbidden"} — an AWS API
+      Gateway envelope, not application/problem+json.
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: /.well-known/security.txt absent on every host
+  - id: rfc8615-well-known-uris
+    conforms: false
+    evidence: no /.well-known/ document served on any host
+domain_standards:
+  note: >-
+    Cyber-threat-intelligence is a market with real domain standards (STIX 2.1 / TAXII 2.1
+    for indicator exchange, MISP for sharing communities). REWARD-ONLY — an absence is not a
+    penalty. These were probed because Nisos sells intelligence products; none is served.
+  candidates:
+    - id: taxii-2.1
+      conforms: false
+      evidence: >-
+        GET https://api.ascend.nisos.com/taxii2/ with Accept application/taxii+json;version=2.1
+        returned 403; https://api.ascend.nisos.com/.well-known/taxii returned 403;
+        https://nisos.com/.well-known/taxii returned 404. No TAXII discovery surface is public.
+    - id: stix-2.1
+      conforms: false
+      evidence: >-
+        No STIX bundle, object schema or reference to STIX appears on any of the 144 public
+        nisos.com pages or in the published llms.txt.
+    - id: misp
+      conforms: false
+      evidence: no MISP feed or module referenced on any public Nisos page
+compliance_program:
+  published: unverified
+  trust_center: https://trust.nisos.com/
+  evidence: >-
+    Nisos operates a Vanta-hosted trust center at https://trust.nisos.com/ (HTTP 200,
+    canonical link and Vanta asset manifest present in the served HTML). The certification
+    list is rendered client-side, so the served HTML contains no certification names and no
+    specific framework (SOC 2, ISO 27001, HIPAA, FedRAMP) could be read anonymously.
+  pointer_policy: >-
+    A TrustCenter pointer IS emitted because the page is real and live. NO Compliance pointer
+    is emitted, because compliance_published requires a named, published certification and
+    none could be read — asserting one would be fabrication.
