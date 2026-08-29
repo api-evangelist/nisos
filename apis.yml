@@ -14,6 +14,17 @@ description: >-
   developer portal, no API reference and no machine-readable contract, though the Ascend
   console does call a live, credential-gated external API host of its own.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://nisos.com/wp-content/uploads/2025/03/NISOS_logo_low_res_horiz-black-cropped.png
 url: https://raw.githubusercontent.com/api-evangelist/nisos/refs/heads/main/apis.yml
 x-type: company
