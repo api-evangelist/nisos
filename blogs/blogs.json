@@ -2,11 +2,18 @@
   "repo": "nisos",
   "feeds": [
     {
-      "source": "https://nisos.com/",
-      "feed_url": "https://nisos.com/blog/rss/",
+      "source": "https://nisos.com/nisos-blog/",
+      "feed_url": "https://nisos.com/feed/",
       "title": "",
       "saved": 0,
       "method": "discovered"
+    },
+    {
+      "source": "https://nisos.com/blog/rss/",
+      "feed_url": "https://nisos.com/blog/rss/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
     },
     {
       "source": "https://nisos.com/blog/feed/",
@@ -23,6 +30,6 @@
       "method": "feed"
     }
   ],
-  "post_count": 14,
-  "fetched": "2026-10-03T12:30:02Z"
+  "post_count": 15,
+  "fetched": "2026-10-10T13:15:00Z"
 }
