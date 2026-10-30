@@ -64,10 +64,101 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Nisos is a human risk intelligence company, founded in 2015 and headquartered in Alexandria, Virginia. It combines analyst-led investigative tradecraft with an AI-assisted platform to help enterprises detect, investigate and mitigate threats that originate with people — executive protection and digital exposure, employment and hiring fraud, insider threat, third-party and supply-chain intelligence, threat landscape assessment, OSINT monitoring and adversary attribution. Its Ascend platform productizes that tradecraft with Executive Shield and Insider Threat Intelligence modules.
+Nisos is a human risk intelligence company, founded in 2015 and headquartered in Alexandria, Virginia, that combines analyst-led investigative tradecraft with an AI-assisted platform to help enterprises detect, investigate and mitigate threats that originate with people. Its Managed Intelligence services cover executive protection and digital exposure, employment and hiring fraud, insider threat, third-party and supply-chain intelligence, threat landscape assessment, OSINT monitoring and adversary attribution investigations, drawing on surface, deep and dark web collection. Its Ascend platform productizes that tradecraft for client-led use, shipping Executive Shield and Insider Threat Intelligence modules with continuous monitoring, PII removal, risk analytics and dashboard reporting. Nisos sells enterprise-only through a demo request; it publishes no developer portal, no API reference and no machine-readable contract, though the Ascend console does call a live, credential-gated external API host of its own.
 
-Nisos sells enterprise-only through a demo request. It publishes no developer portal, no API reference and no machine-readable contract. The Ascend console does call a live, credential-gated external API host of its own (`https://api.ascend.nisos.com`), which answers every anonymous request with HTTP 403.
+**Areas:** Threat Intelligence · Human Risk Management · Insider Threat · Executive Protection · OSINT · Digital Investigations · Cybersecurity · Adversary Attribution · Employment Fraud · Third-Party Risk Management · Trust and Safety · Dark Web Monitoring
 
-- https://nisos.com/
-- https://nisos.com/platform/ascend/
-- https://trust.nisos.com/
+## Nisos on APIs.io
+
+Everything profiled for Nisos is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/nisos/](https://apis.io/providers/nisos/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Nisos Ascend External API](https://apis.io/apis/nisos/nisos-ascend-external-api/) — Credential-gated HTTPS API behind the Nisos Ascend human risk management platform. Its existence and base URL are established from Nisos's own production…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Nisos Domain Security](https://apis.io/security/nisos/nisos-domain-security/)
+- [Nisos Trust Center](https://apis.io/security/nisos/nisos-trust-center/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Nisos Plans Pricing](https://apis.io/plans/nisos/nisos-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Nisos Rate Limits](https://apis.io/rate-limits/nisos/nisos-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://nisos.com/)
+- [Support](https://nisos.com/contact/)
+- [Blog](https://nisos.com/nisos-blog/)
+- [Trust centre](https://trust.nisos.com/)
+- [Terms of service](https://nisos.com/terms-conditions/)
+- [Privacy policy](https://nisos.com/privacy-policy/)
+
+## API Evangelist rating
+
+**Kin Score 17.4** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 35.5 |
+
+**Agent readiness 5.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | yes |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 23.5** — Government & Public Sector
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/nisos/](https://apis.io/providers/nisos/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Nisos: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/nisos/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
